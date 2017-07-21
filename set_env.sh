@@ -1,0 +1,5 @@
+export MYSQL_DATABASE=flask_db
+export MYSQL_USER=flask_minimal
+export MYSQL_ROOT_PASSWORD=flask_pw
+export MYSQL_HOST=localhost
+export MYSQL_PORT=3306

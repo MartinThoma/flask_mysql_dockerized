@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Flask / MySQL minimal example</h1>
+<p class="lead">Home is, where you have superuser access rights.</p>
+<p>This is a minimal example how to use Flask + MySQL and docker the app.</p>
+
+<form action="/" method="POST">
+    <label for="country_name">Country Name</label>
+    <input type="text" name="country_name" id="country_name" />
+    <input type="submit" />
+</form>
+{% endblock %}

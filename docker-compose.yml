@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: app.py
+    ports:
+     - "8082:8082"
+    volumes:
+     - .:/code
+    links:
+     - db
+    hostname: myappserver
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
+    - MYSQL_DATABASE=flask_db
+    - MYSQL_HOST=db
+    - MYSQL_PORT=3306
+  db:
+    image: mysql
+    ports:
+    - "3307:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssw0rd123
+    - MYSQL_DATABASE=flask_db
+    - MYSQL_HOST=mysqlserver

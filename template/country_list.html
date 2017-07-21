@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<h1 class="mt-5">List all countries</h1>
+    <table class="table table-striped table-bordered" id="example">
+    <thead>
+    <tr>
+        <th>Country name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in data %}
+        <tr>
+            <td>{{ item }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
