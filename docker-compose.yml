@@ -4,7 +4,7 @@ services:
     build: .
     command: app.py
     ports:
-     - "8082:8082"
+     - "8082:5000"
     volumes:
      - .:/code
     links:
@@ -23,3 +23,5 @@ services:
     - MYSQL_ROOT_PASSWORD=p@ssw0rd123
     - MYSQL_DATABASE=flask_db
     - MYSQL_HOST=mysqlserver
+    volumes:
+      - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
