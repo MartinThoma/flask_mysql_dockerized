@@ -6,8 +6,8 @@ services:
     ports:
      - "8082:5000"
     volumes:
-     - .:/app  # enables hot code reloading
-     - uploads:/uploads  # for data persistance (<volume name>:<abs path in container>)
+     - .:/opt/app  # enables hot code reloading
+     - uploads:/opt/app/uploads  # for data persistance (<volume name>:<abs path in container>)
     links:
      - db
     hostname: myappserver
