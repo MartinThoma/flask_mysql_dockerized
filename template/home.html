@@ -9,4 +9,11 @@
     <input type="text" name="country_name" id="country_name" />
     <input type="submit" />
 </form>
+
+<p>Upload dir files:</p>
+<ul>
+{% for item in files %}
+<li>{{item}}</li>
+{% endfor %}
+</ul>
 {% endblock %}

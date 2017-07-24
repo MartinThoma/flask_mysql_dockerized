@@ -8,6 +8,8 @@ import logging
 import sys
 import db
 from sqlalchemy import Table
+from os import listdir
+from os.path import isfile, join
 
 logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
                     level=logging.INFO,
@@ -24,7 +26,9 @@ def index_controller():
         country_name = request.form.get('country_name')
         ins = countries_table.insert().values(country_name=country_name)
         db.conn.execute(ins)
-    return render_template('home.html', active_page="home")
+    mypath = '/uploads'
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+    return render_template('home.html', active_page="home", files=onlyfiles)
 
 
 @app.route('/list')

@@ -1,4 +1,4 @@
-version: '3'
+version: '3'  # Version number of the docker-compose file format
 services:
   web:
     build: .
@@ -6,7 +6,8 @@ services:
     ports:
      - "8082:5000"
     volumes:
-     - .:/code
+     - .:/app  # enables hot code reloading
+     - uploads:/uploads  # for data persistance (<volume name>:<abs path in container>)
     links:
      - db
     hostname: myappserver
@@ -15,6 +16,8 @@ services:
     - MYSQL_DATABASE=flask_db
     - MYSQL_HOST=db
     - MYSQL_PORT=3306
+    depends_on:
+    - db
   db:
     image: mysql
     ports:
@@ -25,3 +28,6 @@ services:
     - MYSQL_HOST=mysqlserver
     volumes:
       - ./flask_db.sql:/docker-entrypoint-initdb.d/flask_db.sql
+volumes:
+    uploads:
+        driver: local
